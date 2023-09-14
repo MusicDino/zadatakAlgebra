@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Component } from 'react'
 import './App.css'
+import { UserClass, UserFunction, UserChildren } from '../components'
 
-function App() {
-  const [count, setCount] = useState(0)
+const users = [
+  {name: 'Marc', years:'35'},
+  {name: 'Anne', years:'30'},
+  {name: 'John', years:'25'},
+] 
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+class App extends Component {
+  render(){
+    return (
+        <>
+          <h1>State</h1>
+          < UserClass name={users[0].name} years={users[0].years}/>
+          < UserFunction name={users[1].name} years={users[1].years}/>
+          < UserChildren name={users[2].name} years={users[2].years}>
+          
+          </UserChildren>
+
+        </>
+    )
+  }
+  
 }
 
 export default App
